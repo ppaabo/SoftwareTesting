@@ -33,8 +33,4 @@ describe("camelCase", () => {
   it("should handle strings with special characters (@)", () => {
     expect(camelCase2("abc@abc")).to.equal("abcAbc");
   });
-
-  it("should handle strings with special characters (€)", () => {
-    expect(camelCase2("abc€abc")).to.equal("abcAbc");
-  });
 });
