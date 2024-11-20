@@ -1,4 +1,4 @@
-# Student template
+[![Coverage Status](https://coveralls.io/repos/github/ppaabo/SoftwareTesting/badge.svg?branch=main)](https://coveralls.io/github/ppaabo/SoftwareTesting?branch=main)
 
 ## Purpose of this repository
 
