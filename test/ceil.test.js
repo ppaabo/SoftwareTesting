@@ -16,7 +16,11 @@ describe("ceil", () => {
     expect(ceil(0)).toBe(0);
   });
 
-  // Precision handling
+  // Precision paramter tests
+  it("should handle zero precision", () => {
+    expect(ceil(1.234, 0)).toBe(2);
+  });
+
   it("should handle positive precision values", () => {
     expect(ceil(1.009, 2)).toBe(1.01);
     expect(ceil(204.5574, 3)).toBe(204.558);
@@ -28,12 +32,21 @@ describe("ceil", () => {
     expect(ceil(10, -2)).toBe(100);
   });
 
-  it("should handle precision values that are too big", () => {
-    expect(ceil(2040, 10)).toBe(2040);
+  it("should handle precision values that match the number of decimals in the input", () => {
+    expect(ceil(1.234, 3)).toBe(1.234);
+  });
+
+  it("should handle cases where precision parameter exceeds number of decimals in input", () => {
+    expect(ceil(2040, 10)).toBe(2040.0);
+    expect(ceil(1.234, 5)).toBe(1.234);
+  });
+
+  it("should handle large negative precision values", () => {
+    expect(ceil(123456789, -10)).toBe(10000000000);
   });
 
   // Edge cases, special values & invalid inputs
-  it("should handle large & small numbers", () => {
+  it("should handle large numbers", () => {
     expect(ceil(1e20)).toBe(1e20);
     expect(ceil(1e20, -10)).toBe(1e20);
   });
