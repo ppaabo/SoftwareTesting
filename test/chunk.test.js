@@ -31,7 +31,7 @@ describe("chunk", () => {
     expect(chunk([], 2)).toEqual([]);
   });
 
-  it("should coerce size to an integer", () => {
+  it("should convert size to an integer", () => {
     expect(chunk(["a", "b", "c", "d"], 2.5)).toEqual([["a", "b"], ["c", "d"]]);
   });
 
