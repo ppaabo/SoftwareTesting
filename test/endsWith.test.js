@@ -57,7 +57,7 @@ describe("endsWith", () => {
   });
 
   // Edge cases
-  it("should throw typeError for empty and undefined targets", () => {
+  it("should throw typeError for null and undefined targets", () => {
     expect(() => endsWith("lorem", null)).toThrow(TypeError);
     expect(() => endsWith("lorem", undefined)).toThrow(TypeError);
   });
@@ -79,13 +79,13 @@ describe("endsWith", () => {
     expect(endsWith("", "")).toBe(true);
   });
 
-  // Not sure what is expected behaviour, but ignores decimals (e.g. 5.5 -> 5)
+  // Not sure what is expected behaviour (rounding?), but ignores decimals (e.g. 5.5 -> 5)
   it("should handle non integer position parameters", () => {
     expect(endsWith("lorem", "m", 5.5)).toBe(true);
     expect(endsWith("lorem", "m", 3.9)).toBe(false);
     expect(endsWith("lorem", "m", 4.9)).toBe(true);
   });
-
+  // Should convert both to string or throw TypeErrors for non-string inputs?
   it("should handle non-string inputs for string and target", () => {
     // expect(() => endsWith(12345, "5")).toThrow(TypeError)
     // expect(() => endsWith("12345", 5)).toThrow(TypeError);

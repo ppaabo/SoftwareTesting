@@ -5,17 +5,17 @@ describe("capitalize", () => {
     expect(capitalize("lorem ipsum")).toBe("Lorem ipsum");
   });
 
+  it("should capitalize a single character", () => {
+    expect(capitalize("l")).toBe("L");
+    expect(capitalize("L")).toBe("L");
+  });
+
   it("should convert empty string to an empty string", () => {
     expect(capitalize("")).toBe("");
   });
 
   it("should handle already capitalized strings", () => {
     expect(capitalize("Lorem ipsum")).toBe("Lorem ipsum");
-  });
-
-  it("should capitalize a single character", () => {
-    expect(capitalize("l")).toBe("L");
-    expect(capitalize("L")).toBe("L");
   });
 
   it("should convert 'LOREM IPSUM' to 'Lorem ipsum'", () => {
@@ -45,6 +45,8 @@ describe("capitalize", () => {
     expect(capitalize(longString)).toBe("A" + "a".repeat(999));
   });
 
+  // Doesn't return null, instead converts null to a string "Null"???
+  // toString examples show that it should return empty string for null
   it("should return a empty string for null input", () => {
     expect(capitalize(null)).toBe("");
   });
