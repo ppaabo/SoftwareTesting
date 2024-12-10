@@ -16,6 +16,8 @@ describe("defaultTo", () => {
     expect(defaultTo(null, 10)).toBe(10);
   });
 
+  // According to defaulTo.js, the function should return the default value if the value is NaN
+  // But it does not return the default value if the value is NaN
   it("should return the default value, if value is NaN", () => {
     const value = NaN;
     // if (isNaN(value)) {
